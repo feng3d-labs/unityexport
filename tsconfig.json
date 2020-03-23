@@ -25,8 +25,5 @@
 		"src/ParticleSystemExample.ts",
 		"src/TrailRendererData.ts",
 		"src/TrailRendererExample.ts",
-		"src/shaders/TransparentParticlesStandard.vertex.glsl.ts",
-		"src/shaders/TransparentParticlesStandard.fragment.glsl.ts",
-		"src/shaders/TransparentParticlesStandard.shader.ts",
 	]
 }
