@@ -1,0 +1,32 @@
+{
+	"compilerOptions": {
+		"target": "ES5",
+		"noImplicitAny": false,
+		"sourceMap": true,
+		"experimentalDecorators": true,
+		"declaration": true,
+		"lib": [
+			"ES2015",
+			"dom"
+		],
+		// "outDir": "out"
+		"outFile": "out/unityexport.js"
+	},
+	"references": [
+		{
+			"path": "../feng3d"
+		},
+		{
+			"path": "../unity"
+		},
+	],
+	"files": [
+		"src/ParticleSystemExportData.ts",
+		"src/ParticleSystemExample.ts",
+		"src/TrailRendererData.ts",
+		"src/TrailRendererExample.ts",
+		"src/shaders/TransparentParticlesStandard.vertex.glsl.ts",
+		"src/shaders/TransparentParticlesStandard.fragment.glsl.ts",
+		"src/shaders/TransparentParticlesStandard.shader.ts",
+	]
+}
