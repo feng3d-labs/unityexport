@@ -16,6 +16,12 @@ uniform vec2 _Time;
     uniform vec4 _NoisePanning;
 #endif
 
+uniform mat4 u_modelMatrix;
+uniform mat4 u_viewProjection;
+
+varying vec2 v_uv;
+varying vec4 v_color;
+
 #ifdef EXTENDED_PARTICLES
     varying vec2 v_particledata;
 #endif
@@ -23,12 +29,6 @@ uniform vec2 _Time;
 #ifdef NOISE_TEXTURE
     varying vec2 v_noiseuv;
 #endif
-
-uniform mat4 u_modelMatrix;
-uniform mat4 u_viewProjection;
-
-varying vec2 v_uv;
-varying vec4 v_color;
 
 void main() 
 {
