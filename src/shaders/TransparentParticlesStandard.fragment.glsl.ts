@@ -7,6 +7,48 @@ uniform sampler2D _MainTex;
 
 uniform vec4 u_color;
 
+#ifdef EXTENDED_PARTICLES
+    uniform float _EmissionSaturation;
+    uniform float _OpacitySaturation;
+    uniform float _ColorMultiplier;
+
+    #ifdef COLOR_RAMP
+        uniform sampler2D _ColorRamp;
+        uniform vec4 _ColorRamp_ST;
+    #else
+        #if defined(COLOR_TINT)
+            uniform vec4 _BasicColor;
+        #else
+            uniform vec4 _BasicColor;
+            uniform vec4 _SaturatedColor;
+        #endif
+    #endif
+
+    #ifdef DISSOLVE_ENABLED
+        uniform vec4 _DissolveStep;
+    #endif
+
+    #ifdef NOISE_TEXTURE
+        uniform sampler2D _NoiseTex;
+        uniform vec4 _NoiseTex_ST;
+        uniform vec4 _NoisePanning;
+    #endif
+#else
+    uniform vec4 _TintColor;
+
+    #ifdef EMISSIVEPOWER
+        uniform float _EmissivePower;
+    #endif
+#endif
+
+uniform vec2 _Panning;
+
+#ifdef BLENDMODE_ADDITIVEALPHABLEND
+    uniform float _ABOffset;
+#endif
+
+uniform float _GlobalAlpha;
+
 varying vec2 v_uv;
 varying vec4 v_color;
 
@@ -28,9 +70,9 @@ void main()
     #ifdef EXTENDED_PARTICLES
 
         #ifdef APPLY_RGB_COLOR_VERTEX
-            float4 vcolor = v_color;
+            vec4 vcolor = v_color;
         #else
-            float4 vcolor = float4(1.0, 1.0, 1.0, v_color.w);
+            vec4 vcolor = vec4(1.0, 1.0, 1.0, v_color.w);
         #endif
     
         #ifdef NOISE_TEXTURE
@@ -74,7 +116,7 @@ void main()
     
         #ifdef BLENDMODE_ALPHABLEND
             #ifdef COLOR_RAMP
-                col.xyz = tex2D(_ColorRamp, float2((1.0 - lerpValue), 0.0)) * vcolor.xyz * _EmissionSaturation;
+                col.xyz = tex2D(_ColorRamp, vec2((1.0 - lerpValue), 0.0)) * vcolor.xyz * _EmissionSaturation;
             #else
                 #ifdef COLOR_TINT
                     col.xyz = tex.x * _BasicColor.xyz * vcolor.xyz * nEmission * _EmissionSaturation;
@@ -85,7 +127,7 @@ void main()
             col.a *= _GlobalAlpha;
         #else
             #ifdef COLOR_RAMP
-                col.xyz = tex2D(_ColorRamp, float2((1.0 - lerpValue), 0.0)) * vcolor.xyz * col.a * _EmissionSaturation;
+                col.xyz = tex2D(_ColorRamp, vec2((1.0 - lerpValue), 0.0)) * vcolor.xyz * col.a * _EmissionSaturation;
             #else
                 #ifdef COLOR_TINT
                     col.xyz = tex.x * _BasicColor.xyz * vcolor.xyz * nEmission * _EmissionSaturation * col.a;
@@ -100,7 +142,7 @@ void main()
     
         #ifdef BLENDMODE_ADDITIVEALPHABLEND
             tex *= _TintColor;
-            float luminance = clamp(dot(tex, float4(0.2126, 0.7152, 0.0722, 0.0)) * tex.a * _ABOffset, 0.0, 1.0);
+            float luminance = clamp(dot(tex, vec4(0.2126, 0.7152, 0.0722, 0.0)) * tex.a * _ABOffset, 0.0, 1.0);
             fixed4 one = fixed4(1, 1, 1, 1);
             col = lerp(2.0 * (v_color * tex), one - 2.0 * (one - v_color) * (one - tex), luminance);
         #else
@@ -123,7 +165,7 @@ void main()
                 #endif
             #endif
         
-        #endif	//BLENDMODE_ADDITIVEALPHABLEND
+        #endif
     
         col *= _GlobalAlpha;
 
