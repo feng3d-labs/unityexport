@@ -3,15 +3,16 @@ class ParticleSystemExampe {
     constructor() {
         var view = new feng3d.View();
         view.scene = feng3d.View.createNewScene();
-        var particle = feng3d.GameObject.createPrimitive("Particle System").getComponent(feng3d.ParticleSystem);
+        var particle = feng3d.GameObject.createPrimitive("Particle System").getComponent('ParticleSystem');
         view.scene.gameObject.addChild(particle.gameObject);
-        view.scene.getComponentsInChildren(feng3d.Camera)[0].gameObject.addComponent(feng3d.FPSController);
+        view.scene.getComponentsInChildren('Camera')[0].gameObject.addComponent('FPSController');
         feng3d.serialization.setValue(particle, pd);
         var ps = feng3d.serialization.deserialize(pd);
-        // 移除所有灯光
-        view.scene.getComponentsInChildren(feng3d.Light).forEach(l => {
-            l.gameObject.remove();
-        });
+        // // 移除所有灯光
+        // view.scene.getComponentsInChildren('Light').forEach(l =>
+        // {
+        //     l.gameObject.remove();
+        // });
         var material = particle.material;
         // feng3d.serialization.setValue(material.uniforms, {
         //     _MainTex: { source: { url: 'bp_df1.png' } }
@@ -25,7 +26,7 @@ class ParticleSystemExampe {
         // s_texture: { source: { url: 'resources/m.png' }, flipY: false
     }
 }
-// new ParticleSystemExampe();
+new ParticleSystemExampe();
 var td = {
     "__class__": "feng3d.TrailRenderer",
     "alignment": 0,
@@ -100,16 +101,17 @@ class TrailRendererExample {
         this._moveAngleSpeed = 5;
         var view = new feng3d.View();
         view.scene = feng3d.View.createNewScene();
-        var particle = feng3d.GameObject.createPrimitive("TrailRenderer").getComponent(feng3d.TrailRenderer);
+        var particle = feng3d.GameObject.createPrimitive("TrailRenderer").getComponent('TrailRenderer');
         view.scene.gameObject.addChild(particle.gameObject);
         this.lr = particle;
-        view.scene.getComponentsInChildren(feng3d.Camera)[0].gameObject.addComponent(feng3d.FPSController);
+        view.scene.getComponentsInChildren('Camera')[0].gameObject.addComponent('FPSController');
         feng3d.serialization.setValue(particle, td);
         var ps = feng3d.serialization.deserialize(pd);
-        // 移除所有灯光
-        view.scene.getComponentsInChildren(feng3d.Light).forEach(l => {
-            l.gameObject.remove();
-        });
+        // // 移除所有灯光
+        // view.scene.getComponentsInChildren('Light').forEach(l =>
+        // {
+        //     l.gameObject.remove();
+        // });
         // var material = particle.material;
         // feng3d.serialization.setValue(material.uniforms, {
         //     _MainTex: { source: { url: 'bp_df1.png' } }
@@ -139,5 +141,5 @@ class TrailRendererExample {
         }
     }
 }
-new TrailRendererExample();
+// new TrailRendererExample();
 //# sourceMappingURL=unityexport.js.map

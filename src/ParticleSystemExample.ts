@@ -5,19 +5,19 @@ class ParticleSystemExampe
         var view = new feng3d.View();
         view.scene = feng3d.View.createNewScene();
 
-        var particle = feng3d.GameObject.createPrimitive("Particle System").getComponent(feng3d.ParticleSystem);
+        var particle = feng3d.GameObject.createPrimitive("Particle System").getComponent('ParticleSystem');
         view.scene.gameObject.addChild(particle.gameObject);
 
-        view.scene.getComponentsInChildren(feng3d.Camera)[0].gameObject.addComponent(feng3d.FPSController);
+        view.scene.getComponentsInChildren('Camera')[0].gameObject.addComponent('FPSController');
 
         feng3d.serialization.setValue(particle, pd);
         var ps = feng3d.serialization.deserialize(pd);
 
-        // 移除所有灯光
-        view.scene.getComponentsInChildren(feng3d.Light).forEach(l =>
-        {
-            l.gameObject.remove();
-        });
+        // // 移除所有灯光
+        // view.scene.getComponentsInChildren('Light').forEach(l =>
+        // {
+        //     l.gameObject.remove();
+        // });
 
         var material = particle.material;
 
@@ -36,4 +36,4 @@ class ParticleSystemExampe
     }
 }
 
-// new ParticleSystemExampe();
+new ParticleSystemExampe();
