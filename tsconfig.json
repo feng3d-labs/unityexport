@@ -25,5 +25,7 @@
 		"src/ParticleSystemExample.ts",
 		"src/TrailRendererData.ts",
 		"src/TrailRendererExample.ts",
+		"src/LineRendererExample.ts",
+		"src/index.ts",
 	]
 }
