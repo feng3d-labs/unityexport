@@ -30,7 +30,7 @@ namespace examples
             //     _MainTex: { source: { url: 'snow_negative_x.jpg' } }
             // });
             feng3d.serialization.setValue(material.uniforms, {
-                _MainTex: feng3d.Texture2D.defaultParticle
+                _MainTex: <any>feng3d.Texture2D.defaultParticle
             });
 
 
