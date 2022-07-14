@@ -5,13 +5,13 @@ var examples;
         constructor() {
             var view = new feng3d.View();
             view.scene = feng3d.View.createNewScene();
-            var particle = feng3d.GameObject.createPrimitive("Particle System").getComponent('ParticleSystem');
+            var particle = feng3d.GameObject.createPrimitive("Particle System").getComponent(feng3d.ParticleSystem);
             view.scene.gameObject.addChild(particle.gameObject);
-            view.scene.getComponentsInChildren('Camera')[0].gameObject.addComponent('FPSController');
+            view.scene.getComponentsInChildren(feng3d.Camera)[0].gameObject.addComponent(feng3d.FPSController);
             feng3d.serialization.setValue(particle, pd);
             var ps = feng3d.serialization.deserialize(pd);
             // // 移除所有灯光
-            // view.scene.getComponentsInChildren('Light').forEach(l =>
+            // view.scene.getComponentsInChildren(feng3d.Light).forEach(l =>
             // {
             //     l.gameObject.remove();
             // });
@@ -106,10 +106,10 @@ var examples;
             this._moveAngleSpeed = 5;
             var view = new feng3d.View();
             view.scene = feng3d.View.createNewScene();
-            var particle = feng3d.GameObject.createPrimitive("TrailRenderer").getComponent('TrailRenderer');
+            var particle = feng3d.GameObject.createPrimitive("TrailRenderer").getComponent(feng3d.TrailRenderer);
             view.scene.gameObject.addChild(particle.gameObject);
             this.lr = particle;
-            view.scene.getComponentsInChildren('Camera')[0].gameObject.addComponent('FPSController');
+            view.scene.getComponentsInChildren(feng3d.Camera)[0].gameObject.addComponent(feng3d.FPSController);
             feng3d.serialization.setValue(particle, td);
             var ps = feng3d.serialization.deserialize(pd);
             setInterval(this.update.bind(this), 16);
@@ -138,9 +138,9 @@ var examples;
         constructor() {
             var view = new feng3d.View();
             view.scene = feng3d.View.createNewScene();
-            view.scene.getComponentsInChildren('Camera')[0].gameObject.addComponent('FPSController');
+            view.scene.getComponentsInChildren(feng3d.Camera)[0].gameObject.addComponent(feng3d.FPSController);
             const go = new feng3d.GameObject();
-            const lineRenderer = go.addComponent('LineRenderer');
+            const lineRenderer = go.addComponent(feng3d.LineRenderer);
             lineRenderer.SetPositions([new feng3d.Vector3(-5, 0, 0), new feng3d.Vector3(5, 0, 0), new feng3d.Vector3(5, 5, 0)]);
             lineRenderer.useCurve = true;
             lineRenderer.numCapVertices = 1;

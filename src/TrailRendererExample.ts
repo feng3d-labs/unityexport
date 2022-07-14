@@ -7,12 +7,12 @@ namespace examples
             var view = new feng3d.View();
             view.scene = feng3d.View.createNewScene();
 
-            var particle = feng3d.GameObject.createPrimitive("TrailRenderer").getComponent('TrailRenderer');
+            var particle = feng3d.GameObject.createPrimitive("TrailRenderer").getComponent(feng3d.TrailRenderer);
             view.scene.gameObject.addChild(particle.gameObject);
 
             this.lr = particle;
 
-            view.scene.getComponentsInChildren('Camera')[0].gameObject.addComponent('FPSController');
+            view.scene.getComponentsInChildren(feng3d.Camera)[0].gameObject.addComponent(feng3d.FPSController);
 
             feng3d.serialization.setValue(particle, td);
             var ps = feng3d.serialization.deserialize(pd);
