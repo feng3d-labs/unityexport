@@ -1,18 +1,20 @@
+import { View, GameObject, ParticleSystem, Camera, FPSController, serialization, Texture2D } from 'feng3d';
+import { pd } from './ParticleSystemExportData';
 
 export class ParticleSystemExampe
 {
     constructor()
     {
-        var view = new View();
+        const view = new View();
         view.scene = View.createNewScene();
 
-        var particle = GameObject.createPrimitive("Particle System").getComponent(ParticleSystem);
+        const particle = GameObject.createPrimitive('Particle System').getComponent(ParticleSystem);
         view.scene.gameObject.addChild(particle.gameObject);
 
         view.scene.getComponentsInChildren(Camera)[0].gameObject.addComponent(FPSController);
 
         serialization.setValue(particle, pd);
-        var ps = serialization.deserialize(pd);
+        // const ps = serialization.deserialize(pd);
 
         // // 移除所有灯光
         // view.scene.getComponentsInChildren(Light).forEach(l =>
@@ -20,7 +22,7 @@ export class ParticleSystemExampe
         //     l.gameObject.remove();
         // });
 
-        var material = particle.material;
+        const material = particle.material;
 
         // serialization.setValue(material.uniforms, {
         //     _MainTex: { source: { url: 'bp_df1.png' } }
@@ -31,7 +33,6 @@ export class ParticleSystemExampe
         serialization.setValue(material.uniforms, {
             _MainTex: <any>Texture2D.defaultParticle
         });
-
 
         // s_texture: { source: { url: 'resources/m.png' }, flipY: false
     }

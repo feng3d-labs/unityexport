@@ -17,7 +17,7 @@ export class TrailRendererExample
         view.scene.getComponentsInChildren(Camera)[0].gameObject.addComponent(FPSController);
 
         serialization.setValue(particle, td);
-        const ps = serialization.deserialize(pd);
+        // const ps = serialization.deserialize(pd);
 
         setInterval(this.update.bind(this), 16);
     }
