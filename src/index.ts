@@ -1,9 +1,5 @@
-namespace examples
-{
 
 
-    new ParticleSystemExampe();
+    // new ParticleSystemExampe();
     // new TrailRendererExample();
-    // new LineRendererExample();
-
-}
+    new LineRendererExample();

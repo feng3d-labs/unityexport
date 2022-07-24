@@ -1,27 +1,25 @@
 {
-	"compilerOptions": {
-		"target": "ES2015",
-		"noImplicitAny": false,
-		"sourceMap": true,
-		"experimentalDecorators": true,
-		"declaration": true,
-		"skipLibCheck": true,
-		"lib": [
-			"ES2015",
-			"dom"
-		],
-		// "outDir": "out"
-		"outFile": "out/unityexport.js"
-	},
-	"files": [
-        "../feng3d/index.d.ts",
-		"../unity/index.d.ts",
-        //
-		"src/ParticleSystemExportData.ts",
-		"src/ParticleSystemExample.ts",
-		"src/TrailRendererData.ts",
-		"src/TrailRendererExample.ts",
-		"src/LineRendererExample.ts",
-		"src/index.ts",
-	]
+    "compilerOptions": {
+        "target": "ES5",
+        "module": "CommonJS",
+        "noImplicitAny": false,
+        "sourceMap": true,
+        "declarationMap": true,
+        "declaration": true,
+        "experimentalDecorators": true,
+        "lib": [
+            "ES2015",
+            "DOM",
+        ],
+        "outDir": "lib"
+    },
+    "include": [
+        "src/**/*.ts"
+    ],
+    "ts-node": {
+        "files": true,
+        "compilerOptions": {
+            "esModuleInterop": true
+        }
+    }
 }

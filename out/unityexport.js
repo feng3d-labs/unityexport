@@ -152,8 +152,8 @@ var examples;
 })(examples || (examples = {}));
 var examples;
 (function (examples) {
-    new examples.ParticleSystemExampe();
+    // new ParticleSystemExampe();
     // new TrailRendererExample();
-    // new LineRendererExample();
+    new examples.LineRendererExample();
 })(examples || (examples = {}));
 //# sourceMappingURL=unityexport.js.map
