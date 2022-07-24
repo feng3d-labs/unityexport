@@ -1,3 +1,4 @@
+import { TrailRenderer } from '@feng3d/unity';
 import { gPartial } from 'feng3d';
 
 export const td: gPartial<TrailRenderer>

@@ -45,10 +45,8 @@ async function main()
 
     const namespaces = {};
     namespaces[pkg.name] = pkg.namespace || 'feng3d';
-    for (const key in pkg.dependencies)
-    {
-        namespaces[key] = 'feng3d';
-    }
+    namespaces['feng3d'] = 'feng3d';
+    namespaces['@feng3d/unity'] = 'unity';
 
     let banner = [
         `/*!`,
@@ -139,7 +137,7 @@ async function main()
         {
             if (bundleNoExports !== true)
             {
-                footer = `Object.assign(this.${ns}, ${name});`;
+                footer = `try{Object.assign(this.${ns}, ${name});}catch (error) {}`;
             }
 
             if (ns.includes('.'))

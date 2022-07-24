@@ -1,5 +1,5 @@
-import { View, GameObject, Camera, FPSController, serialization, Vector3 } from 'feng3d';
-import { pd } from './ParticleSystemExportData';
+import { LineAlignment, TrailRenderer } from '@feng3d/unity';
+import { Camera, FPSController, GameObject, serialization, Vector3, View } from 'feng3d';
 import { td } from './TrailRendererData';
 
 export class TrailRendererExample

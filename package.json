@@ -6,10 +6,8 @@
   "module": "lib/index.es.js",
   "bundle": "dist/index.js",
   "types": "dist/index.d.ts",
-  "namespace": "unity",
   "author": "feng",
   "license": "MIT",
-  "standalone": true,
   "scripts": {
     "start": "npm run watch",
     "clean": "rimraf \"{lib,dist}\"",

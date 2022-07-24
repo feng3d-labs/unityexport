@@ -1,4 +1,5 @@
-import { View, Camera, FPSController, GameObject, Vector3 } from 'feng3d';
+import { LineRenderer } from '@feng3d/unity';
+import { Camera, FPSController, GameObject, Vector3, View } from 'feng3d';
 
 export class LineRendererExample
 {
