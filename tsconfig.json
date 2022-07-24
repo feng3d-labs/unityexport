@@ -13,13 +13,9 @@
 		// "outDir": "out"
 		"outFile": "out/unityexport.js"
 	},
-	"references": [
-		{
-			"path": "../unity"
-		},
-	],
 	"files": [
         "../feng3d/index.d.ts",
+		"../unity/index.d.ts",
         //
 		"src/ParticleSystemExportData.ts",
 		"src/ParticleSystemExample.ts",
