@@ -1,7 +1,8 @@
 import { LineRendererExample } from './LineRendererExample';
 import { ParticleSystemExampe } from './ParticleSystemExample';
+import { TrailRendererExample } from './TrailRendererExample';
 
-new ParticleSystemExampe();
-// new TrailRendererExample();
-// new LineRendererExample();
+new [ParticleSystemExampe,
+    TrailRendererExample,
+    LineRendererExample][1]();
 
