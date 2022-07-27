@@ -1,9 +1,8 @@
-namespace examples
-{
+import { LineRendererExample } from './LineRendererExample';
+import { ParticleSystemExampe } from './ParticleSystemExample';
+import { TrailRendererExample } from './TrailRendererExample';
 
+new [ParticleSystemExampe,
+    TrailRendererExample,
+    LineRendererExample][1]();
 
-    // new ParticleSystemExampe();
-    // new TrailRendererExample();
-    new LineRendererExample();
-
-}

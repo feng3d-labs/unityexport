@@ -1,40 +1,39 @@
-namespace examples
+import { View, GameObject, ParticleSystem, Camera, FPSController, serialization, Texture2D } from 'feng3d';
+import { pd } from './ParticleSystemExportData';
+
+export class ParticleSystemExampe
 {
-    export class ParticleSystemExampe
+    constructor()
     {
-        constructor()
-        {
-            var view = new feng3d.View();
-            view.scene = feng3d.View.createNewScene();
+        const view = new View();
+        view.scene = View.createNewScene();
 
-            var particle = feng3d.GameObject.createPrimitive("Particle System").getComponent(feng3d.ParticleSystem);
-            view.scene.gameObject.addChild(particle.gameObject);
+        const particle = GameObject.createPrimitive('Particle System').getComponent(ParticleSystem);
+        view.scene.gameObject.addChild(particle.gameObject);
 
-            view.scene.getComponentsInChildren(feng3d.Camera)[0].gameObject.addComponent(feng3d.FPSController);
+        view.scene.getComponentsInChildren(Camera)[0].gameObject.addComponent(FPSController);
 
-            feng3d.serialization.setValue(particle, pd);
-            var ps = feng3d.serialization.deserialize(pd);
+        serialization.setValue(particle, pd);
+        // const ps = serialization.deserialize(pd);
 
-            // // 移除所有灯光
-            // view.scene.getComponentsInChildren(feng3d.Light).forEach(l =>
-            // {
-            //     l.gameObject.remove();
-            // });
+        // // 移除所有灯光
+        // view.scene.getComponentsInChildren(Light).forEach(l =>
+        // {
+        //     l.gameObject.remove();
+        // });
 
-            var material = particle.material;
+        const material = particle.material;
 
-            // feng3d.serialization.setValue(material.uniforms, {
-            //     _MainTex: { source: { url: 'bp_df1.png' } }
-            // });
-            // feng3d.serialization.setValue(material.uniforms, {
-            //     _MainTex: { source: { url: 'snow_negative_x.jpg' } }
-            // });
-            feng3d.serialization.setValue(material.uniforms, {
-                _MainTex: <any>feng3d.Texture2D.defaultParticle
-            });
+        // serialization.setValue(material.uniforms, {
+        //     _MainTex: { source: { url: 'bp_df1.png' } }
+        // });
+        // serialization.setValue(material.uniforms, {
+        //     _MainTex: { source: { url: 'snow_negative_x.jpg' } }
+        // });
+        serialization.setValue(material.uniforms, {
+            _MainTex: <any>Texture2D.defaultParticle
+        });
 
-
-            // s_texture: { source: { url: 'resources/m.png' }, flipY: false
-        }
+        // s_texture: { source: { url: 'resources/m.png' }, flipY: false
     }
 }

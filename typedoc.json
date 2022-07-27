@@ -1,0 +1,8 @@
+{
+    "name": "@feng3d/unityexport",
+    "entryPoints": [
+        "src/index.ts"
+    ],
+    "sourcefile-url-prefix": "https://gitlab.com/feng3d/unityexport/tree/master/src/",
+    "out": "public"
+}
